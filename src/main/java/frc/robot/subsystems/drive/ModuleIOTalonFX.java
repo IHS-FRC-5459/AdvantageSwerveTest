@@ -25,6 +25,7 @@ import com.ctre.phoenix6.signals.InvertedValue;
 import com.ctre.phoenix6.signals.NeutralModeValue;
 import edu.wpi.first.math.geometry.Rotation2d;
 import edu.wpi.first.math.util.Units;
+import frc.robot.Constants;
 
 /**
  * Module IO implementation for Talon FX drive motor controller, Talon FX turn motor controller, and
@@ -55,37 +56,43 @@ public class ModuleIOTalonFX implements ModuleIO {
   private final StatusSignal<Double> turnCurrent;
 
   // Gear ratios for SDS MK4i L2, adjust as necessary
-  private final double DRIVE_GEAR_RATIO = (50.0 / 14.0) * (17.0 / 27.0) * (45.0 / 15.0);
-  private final double TURN_GEAR_RATIO = 150.0 / 7.0;
+  private final double DRIVE_GEAR_RATIO = COTSTalonFXSwerveConstants.SDS.MK4.Falcon500(COTSTalonFXSwerveConstants.SDS.MK4.driveRatios.L2);//(50.0 / 14.0) * (17.0 / 27.0) * (45.0 / 15.0);
+  private final double TURN_GEAR_RATIO = COTSTalonFXSwerveConstants.SDS.MK4.Falcon500(COTSTalonFXSwerveConstants.SDS.MK4.driveRatios.L2);//150.0 / 7.0;
 
   private final boolean isTurnMotorInverted = true;
   private final Rotation2d absoluteEncoderOffset;
 
   public ModuleIOTalonFX(int index) {
+    //Adapation instead of the switch statement:
+    String modName = "Mod" + index;
+    driveTalon = new TalonFX(Constants[modName].driveMotorID);
+    turnTalon = new TalonFX(Constants[modName].angleMotorID);
+    cancoder = new CANcoder(Constants[modName].canCoderID);
+    absoluteEncoderOffset = Constants[modName].encoderOffset;//new Rotation2d(0.0); // MUST BE CALIBRATED
     switch (index) {
       case 0:
-        driveTalon = new TalonFX(0);
-        turnTalon = new TalonFX(1);
-        cancoder = new CANcoder(2);
-        absoluteEncoderOffset = new Rotation2d(0.0); // MUST BE CALIBRATED
+        driveTalon = new TalonFX(Constants.Mod0.driveMotorID);
+        turnTalon = new TalonFX(Constants.Mod0.angleMotorID);
+        cancoder = new CANcoder(Constants.Mod0.canCoderID);
+        absoluteEncoderOffset = Constants.Mod0.encoderOffset;//new Rotation2d(0.0); // MUST BE CALIBRATED
         break;
       case 1:
-        driveTalon = new TalonFX(3);
-        turnTalon = new TalonFX(4);
-        cancoder = new CANcoder(5);
-        absoluteEncoderOffset = new Rotation2d(0.0); // MUST BE CALIBRATED
+        driveTalon = new TalonFX(Constants.Mod1.driveMotorID);
+        turnTalon = new TalonFX(Constants.Mod1.angleMotorID);
+        cancoder = new CANcoder(Constants.Mod1.canCoderID);
+        absoluteEncoderOffset = Constants.Mod1.encoderOffset;//new Rotation2d(0.0); // MUST BE CALIBRATED
         break;
       case 2:
-        driveTalon = new TalonFX(6);
-        turnTalon = new TalonFX(7);
-        cancoder = new CANcoder(8);
-        absoluteEncoderOffset = new Rotation2d(0.0); // MUST BE CALIBRATED
+        driveTalon = new TalonFX(Constants.Mod2.driveMotorID);
+        turnTalon = new TalonFX(Constants.Mod2.angleMotorID);
+        cancoder = new CANcoder(Constants.Mod2.canCoderID);
+        absoluteEncoderOffset = Constants.Mod2.encoderOffset;//new Rotation2d(0.0); // MUST BE CALIBRATED
         break;
       case 3:
-        driveTalon = new TalonFX(9);
-        turnTalon = new TalonFX(10);
-        cancoder = new CANcoder(11);
-        absoluteEncoderOffset = new Rotation2d(0.0); // MUST BE CALIBRATED
+        driveTalon = new TalonFX(Constants.Mod3.driveMotorID);
+        turnTalon = new TalonFX(Constants.Mod3.angleMotorID);
+        cancoder = new CANcoder(Constants.Mod3.canCoderID);
+        absoluteEncoderOffset = Constants.Mod3.encoderOffset;//new Rotation2d(0.0); // MUST BE CALIBRATED
         break;
       default:
         throw new RuntimeException("Invalid module index");

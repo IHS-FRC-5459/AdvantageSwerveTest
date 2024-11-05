@@ -36,11 +36,11 @@ import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import edu.wpi.first.wpilibj2.command.sysid.SysIdRoutine;
 import frc.robot.util.LocalADStarAK;
-import org.littletonrobotics.junction.AutoLogOutput;
-import org.littletonrobotics.junction.Logger;
+// import org.littletonrobotics.junction.AutoLogOutput;
+// import org.littletonrobotics.junction.Logger;
 
 public class Drive extends SubsystemBase {
-  private static final double MAX_LINEAR_SPEED = Units.feetToMeters(14.5); // Need ot find
+  private static final double MAX_LINEAR_SPEED = Units.feetToMeters(14.5); // Need to find
   private static final double TRACK_WIDTH_X = Units.inchesToMeters(27.0);
   private static final double TRACK_WIDTH_Y = Units.inchesToMeters(27.0);
   private static final double DRIVE_BASE_RADIUS =

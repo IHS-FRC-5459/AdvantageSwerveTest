@@ -69,7 +69,7 @@ public class ModuleIOTalonFX implements ModuleIO {
     turnTalon = new TalonFX(Constants[modName].angleMotorID);
     cancoder = new CANcoder(Constants[modName].canCoderID);
     absoluteEncoderOffset = Constants[modName].encoderOffset;//new Rotation2d(0.0); // MUST BE CALIBRATED
-    switch (index) {
+    /*switch (index) {
       case 0:
         driveTalon = new TalonFX(Constants.Mod0.driveMotorID);
         turnTalon = new TalonFX(Constants.Mod0.angleMotorID);
@@ -96,7 +96,7 @@ public class ModuleIOTalonFX implements ModuleIO {
         break;
       default:
         throw new RuntimeException("Invalid module index");
-    }
+    }*/
 
     var driveConfig = new TalonFXConfiguration();
     driveConfig.CurrentLimits.SupplyCurrentLimit = 40.0;

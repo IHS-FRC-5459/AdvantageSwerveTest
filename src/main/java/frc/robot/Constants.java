@@ -40,28 +40,28 @@ public final class Constants {
       public static final int driveMotorID = 3;
       public static final int angleMotorID = 2;
       public static final int canCoderID = 10;
-      public static final double encoderOffset = new Rotation2d(0.0);
+      public static final Rotation2d encoderOffset = new Rotation2d(0.0);
       // or: public static final Rotation2d angleOffset = Rotation2d.fromDegrees(150.29);
     }
     public static class Mod1{
       public static final int driveMotorID = 5;
       public static final int angleMotorID = 4;
       public static final int canCoderID = 11;
-      public static final double encoderOffset = new Rotation2d(0.0);
+      public static final Rotation2d encoderOffset = new Rotation2d(0.0);
       // or: public static final Rotation2d angleOffset = Rotation2d.fromDegrees(150.29);
     }
     public static class Mod2{
       public static final int driveMotorID = 7;
       public static final int angleMotorID = 6;
       public static final int canCoderID = 12;
-      public static final double encoderOffset = new Rotation2d(0.0);
+      public static final Rotation2d encoderOffset = new Rotation2d(0.0);
       // or: public static final Rotation2d angleOffset = Rotation2d.fromDegrees(150.29);
     }
     public static class Mod3{
       public static final int driveMotorID = 9;
       public static final int angleMotorID = 8;
       public static final int canCoderID = 13;
-      public static final double encoderOffset = new Rotation2d(0.0);
+      public static final Rotation2d encoderOffset = new Rotation2d(0.0);
       // or: public static final Rotation2d angleOffset = Rotation2d.fromDegrees(150.29);
     }
   }
